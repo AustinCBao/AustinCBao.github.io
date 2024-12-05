@@ -1,73 +1,45 @@
+// login.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登陆页面</title>
+</head>
+<body>
+    <form action="index.html">
+        <div>登陆页面</div>
+        用户名：<input type="text" name="uname"  id="">
+        <input type="submit" name="" value="登录">
+    </form>
+</html>
+
+// index.html
+
 <!DOCTYPE html>
 <html lang="Cn_zh">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>首页</title>
     <style>
-        body {
-            perspective: 1000px;
-            background-color: pink;
-        }
-        section {
-            position: relative;
-            transform-style: preserve-3d;
-            width: 300px;
-            height: 200px;
-            margin: 300px auto;
-            animation: xzmm 10s linear infinite;
-        }
-
-        section:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes xzmm {
-            0% {
-                transform: rotateY(0);
-            }
-            100% {
-                transform: rotateY(360deg);
-            }
-        }
-        section div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url(/Picture/动图合集/雨滴.gif) no-repeat;
-        }
-        section div:nth-child(1) {
-            transform: translateZ(300px);
-        }
-        section div:nth-child(2) {
-            transform: rotateY(60deg) translateZ(300px);
-        }
-        section div:nth-child(3) {
-            transform: rotateY(120deg) translateZ(300px);
-        }
-        section div:nth-child(4) {
-            transform: rotateY(180deg) translateZ(300px);
-        }
-        section div:nth-child(5) {
-            transform: rotateY(240deg) translateZ(300px);
-        }
-        section div:nth-child(6) {
-            transform: rotateY(300deg) translateZ(300px);
-        }
     </style>
 </head>
 <body>
-    <section>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </section>
+    <div>首页</div>
+    <div class="s" style="margin: 100px;">欢迎光临</div>
+    <script>
+        var div = document.querySelector('.s');
+        var ss = location.search; // ?uname=12
+        // 1. 先去掉？ substr('起始位置'，截取几个字符)
+        var params = ss.substr(1); //uname=12
+        // 2. 利用 = 把字符串分割为数组 split('=');
+        var arr = params.split('='); // ['uname', '12']
+        // 3. 把数据写入div中
+        div.innerHTML = arr[1] + ' 欢迎光临';
+    </script>
 </body>
 </html>
